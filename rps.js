@@ -13,9 +13,9 @@ function getComputerChoice() {
 }
 function playRound(playerSelection, computerSelection) {
     console.log("1", playerSelection, "2", computerSelection);
-    
-    
-    if (playerSelection === computerSelection) {
+    playerSelection = prompt("Choose Rock, Paper, or Scissors: ").toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase();
+     if (playerSelection === computerSelection) {
         return `It is a tie! You both picked ${playerSelection}` + " Score is: Player Score: " + playerScore + " Computer Score: " + computerScore;
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -30,28 +30,21 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper")) {
 
         computerScore++;
-        return "Computer won! " + computerSelection + " beats " + playerSelection + "! Player score: " + playerScore + " Computer score: " + computerScore;
-        
+        return "Computer won! " + computerSelection + " beats " + playerSelection + "! Player score: " + playerScore + " Computer score: " + computerScore;    
     }
-
 }
-
-
 function game(){
     for (i = 0; i < 5; i++){
-      playerSelection = prompt("Choose Rock, Paper, or Scissors: ").toLowerCase();
-      computerSelection = getComputerChoice().toLowerCase();
+      
       console.log(playRound(playerSelection, computerSelection))
         
 
     }
     if (playerScore > computerScore){
         return "You beat the computer good job!";
-    } else {
+    } else if(computerScore > playerScore) {
         return "Computer beat you! Try again"
-    }
-    
-
+    }  
 }
 console.log(game());
 
